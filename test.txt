@@ -1,0 +1,14 @@
+[
+    Axolotl {
+        color_type: Leucistic,
+        name: "Pog man",
+        favorite_food: Other(
+            "pog food",
+        ),
+        owner: "Pogger",
+        lives: "Pogtopia",
+    },
+]
+
+pogpogpogpgo
+Axolotl

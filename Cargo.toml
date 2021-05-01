@@ -1,0 +1,9 @@
+[package]
+name = "axolotl_creator"
+version = "0.1.2"
+authors = ["axolotl-inc"]
+edition = "2018"
+license = "Apache-1.0"
+description = "A fun game where you make a bunch of cute little axolotls!"
+
+[dependencies]
