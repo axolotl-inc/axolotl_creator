@@ -16,8 +16,4 @@ A place where you can create *ANY* axolotl you want!
 
 # Panics!
 
-When doing user input, if the prgramm failes to read a line, it will call `panic!()`.  
-
-# Errors
-
-When parsing i32 in the `kill_axolotl()` command.
+When doing user input, if the prgramm failes to read a line, it will panic!  

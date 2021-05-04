@@ -12,7 +12,7 @@
 //!
 //! # Panics!
 //!
-//! When doing user input, if the prgramm failes to read a line, it will call `panic!()`.  
+//! When doing user input, if the prgramm failes to read a line, it will panic!  
 
 
 pub mod structs;
