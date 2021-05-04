@@ -17,6 +17,10 @@ pub fn handle_input(vec: &mut structs::AxolotlVec) {
             edit_axolotl(vec);
         } else if msg.trim() == String::from("kill axolotl") {
             kill_axolotl(vec);
+        } else if msg.trim() == String::from("save to file") {
+            vec.save_file();
+        } else if msg.trim() == String::from("read from save") {
+            vec.read_save();
         } else if msg.trim() == String::from("axolotls be win") {
             println!("\nYour right about that!");
             println!("#_____#  ");
@@ -28,7 +32,6 @@ pub fn handle_input(vec: &mut structs::AxolotlVec) {
             break;
         } else {
             println!("Error reading command or message, please try again");
-            println!("This is what you said: {}", msg);
         }
         msg = String::new()
     }
@@ -133,4 +136,11 @@ fn add_axolotl(vec: &mut structs::AxolotlVec) {
     vec.append_axolotl(
         color_type, name, favorite_food, owner, lives
     );
+}
+
+pub fn ask_for_path() -> String {
+    println!("What path do you want to read/write from?");
+    let mut path = String::new();
+    stdin().read_line(&mut path).expect("Failed to read line. Program exiting.");
+    path.trim().to_string()
 }

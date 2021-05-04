@@ -5,14 +5,12 @@ pub fn intro() {
 
 pub fn help() {
     println!("Commands:");
-    println!("\tadd axolotl, adds an axolotl to AxolotlVec.");
+    println!("\tadd axolotl, adds an axolotl to your collection.");
     println!("\thelp, look at what you are looking at right now.");
     println!("\tshow my axolotls, list your buitiful axolotls.");
     println!("\tedit axolotl, change one of you axolotls.");
-    println!("\tkill axolotl, :( dont do it.");
+    println!("\tkill axolotl, please don't do it. If it happens 5 times im taking it away.");
     println!("\tstop, close program.");
-}
-
-fn __test__() {
-    let _vec = vec!("t", "m", "p");
+    println!("\tread from save, read a save file.");
+    println!("\tsave to file, save your collection of axolotls to a file.")
 }

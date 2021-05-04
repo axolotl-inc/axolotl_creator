@@ -1,4 +1,8 @@
+use savefile::prelude;
+use crate::readinput;
+
 #[derive(Debug)]
+#[derive(Savefile)]
 pub enum AxolotlType {
     Leucistic,
     GoldenAlbino,
@@ -17,6 +21,7 @@ pub enum AxolotlType {
     Enigma,
 }
 
+#[derive(Savefile)]
 #[derive(Debug)]
 pub enum AxolotlFoods {
     BigFish,
@@ -26,6 +31,7 @@ pub enum AxolotlFoods {
     Other(String),
 }
 
+#[derive(Savefile)]
 #[derive(Debug)]
 pub struct Axolotl {
     pub color_type: AxolotlType,
@@ -34,6 +40,8 @@ pub struct Axolotl {
     pub owner: String,
     pub lives: String,
 }
+
+#[derive(Savefile)]
 pub struct AxolotlVec {
     pub axolotls: Vec<Axolotl>,
 }
@@ -53,6 +61,22 @@ impl AxolotlVec {
 
     pub fn as_string(&self) -> String {
         format!("{:?}", self.axolotls).trim().to_string()
+    }
+
+    pub fn read_save(&mut self) {
+        let path = readinput::ask_for_path();
+        let tmp: AxolotlVec = match prelude::load_file(path.as_str(), 0) {
+            Ok(t) => t,
+            Err(e) => {println!("Failed reading file. Error: {}", e); AxolotlVec::new()}
+        };
+        self.axolotls = tmp.axolotls;
+    }
+
+    pub fn save_file(&self) {
+        let path = readinput::ask_for_path();
+        if let Err(e) = prelude::save_file(path.as_str(), 0, self) {
+            println!("Failed saving file. Error: {}", e);
+        }
     }
 }
 impl AxolotlType {

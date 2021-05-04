@@ -5,5 +5,10 @@ authors = ["axolotl-inc"]
 edition = "2018"
 license = "Apache-1.0"
 description = "A fun game where you make a bunch of cute little axolotls!"
+readme = "README.md"
+repository = "https://github.com/axolotl-inc/axolotl_creator"
+
 
 [dependencies]
+savefile = "0.7.4"
+savefile-derive="0.7"
