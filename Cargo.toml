@@ -1,6 +1,6 @@
 [package]
 name = "axolotl_creator"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["axolotl-inc"]
 edition = "2018"
 license = "Apache-1.0"

@@ -115,7 +115,7 @@ fn add_axolotl(vec: &mut structs::AxolotlVec) {
     name = name.trim().to_string();
 
     println!("What is {}'s favorite food?", name);
-    println!("The choices are: Small Fish, Little Fish, Worms, Pet Food, Other(String)");
+    println!("The choices are: Big Fish, Little Fish, Worms, Pet Food, Other(String)");
     println!("Please type in {}'s disered food: ", name);
     let mut food = String::new();
     stdin().read_line(&mut food).expect("Failed to read line. Profram exiting.");
