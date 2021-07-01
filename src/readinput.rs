@@ -9,17 +9,17 @@ pub fn handle_input(vec: &mut structs::AxolotlVec) {
         stdin().read_line(&mut msg).expect("Failed to read line. Program exiting.");
         if msg.trim() == String::from("help") {
             tell::help();
-        } else if msg.trim() == String::from("add axolotl") {
+        } else if msg.trim() == String::from("add") {
             add_axolotl(vec);
-        } else if msg.trim() == String::from("show my axolotls") {
+        } else if msg.trim() == String::from("list") {
             vec.list_axolotls();
-        } else if msg.trim() == String::from("edit axolotl") {
+        } else if msg.trim() == String::from("edit") {
             edit_axolotl(vec);
-        } else if msg.trim() == String::from("kill axolotl") {
+        } else if msg.trim() == String::from("kill") {
             kill_axolotl(vec);
-        } else if msg.trim() == String::from("save to file") {
+        } else if msg.trim() == String::from("save") {
             vec.save_file();
-        } else if msg.trim() == String::from("read from save") {
+        } else if msg.trim() == String::from("load") {
             vec.read_save();
         } else if msg.trim() == String::from("axolotls be win") {
             println!("\nYour right about that!");

@@ -7,6 +7,7 @@ license = "Apache-1.0"
 description = "A fun game where you make a bunch of cute little axolotls!"
 readme = "README.md"
 repository = "https://github.com/axolotl-inc/axolotl_creator"
+hompage = "https://axolotl-inc.github.io"
 
 
 [dependencies]
