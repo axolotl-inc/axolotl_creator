@@ -64,8 +64,14 @@ fn edit_axolotl(vec: &mut structs::AxolotlVec) {
     let mut index_tmp = String::new();
     stdin().read_line(&mut index_tmp).expect("Failed to read line.");
     let index = index_tmp.trim().parse::<usize>().unwrap();
-    println!("get ready to change {}...\n", vec.axolotls[index].name);
-
+    if index >= vec.axolotls.len() {
+        println!("To big of an index.");
+        edit_axolotl(vec);
+    }
+    else {
+        println!("get ready to change {}...\n", vec.axolotls[index].name);
+    }
+    
     println!("What would you like the type/color of axolotl to be?");
     println!("Choices: Leucistic, Golden Albino, Wild Type, Piebald, Mosaic, Copper, Lavender, Black Melanoid, White Albino, Speckled Leucistic, Chimera, Heavily Marked Melanoid, Green Fluorescent Protein, Firefly, Enigma,");
     println!("Please type in your desired type: ");
@@ -138,8 +144,8 @@ fn add_axolotl(vec: &mut structs::AxolotlVec) {
     );
 }
 
-pub fn ask_for_path() -> String {
-    println!("What path do you want to read/write from?");
+pub fn ask_for_save() -> String {
+    println!("What save do you want to read/write from?");
     let mut path = String::new();
     stdin().read_line(&mut path).expect("Failed to read line. Program exiting.");
     path.trim().to_string()

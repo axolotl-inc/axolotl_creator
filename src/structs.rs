@@ -1,5 +1,7 @@
 use savefile::prelude;
 use crate::readinput;
+use std::path::Path;
+use std::fs;
 
 #[derive(Debug)]
 #[derive(Savefile)]
@@ -46,9 +48,24 @@ pub struct AxolotlVec {
     pub axolotls: Vec<Axolotl>,
 }
 
+fn check_save_folder() {
+    if !(Path::new("./saves").exists()) {
+        let dir = fs::create_dir("./saves");
+        let _dir = match dir {
+            Ok(directory) => directory,
+            Err(_) => {
+                panic!("Failed to create save folder. Program Exiting");
+            },
+        };
+    }
+}
+
 impl AxolotlVec {
     pub fn new() -> Self {
+        check_save_folder();
         Self {axolotls: Vec::new()}
+        
+
     }
 
     pub fn append_axolotl(&mut self, color_type: AxolotlType, name: String, favorite_food: AxolotlFoods, owner: String, lives: String) {
@@ -64,7 +81,9 @@ impl AxolotlVec {
     }
 
     pub fn read_save(&mut self) {
-        let path = readinput::ask_for_path();
+        let save = readinput::ask_for_save();
+        let path = String::from(format!("./saves/{}.dat", save));
+
         let tmp: AxolotlVec = match prelude::load_file(path.as_str(), 0) {
             Ok(t) => t,
             Err(e) => {println!("Failed reading file. Error: {}", e); AxolotlVec::new()}
@@ -73,7 +92,9 @@ impl AxolotlVec {
     }
 
     pub fn save_file(&self) {
-        let path = readinput::ask_for_path();
+        let save = readinput::ask_for_save();
+        let path = String::from(format!("./saves/{}.dat", save));
+
         if let Err(e) = prelude::save_file(path.as_str(), 0, self) {
             println!("Failed saving file. Error: {}", e);
         }
